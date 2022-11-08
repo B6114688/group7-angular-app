@@ -28,5 +28,9 @@ export class BooksService {
       }));
   }
 
+  getSomeBook(id: number){
+    return this.books[id]
+  }
+
 
 }

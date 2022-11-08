@@ -9,7 +9,7 @@ const config = {
     useUnifiedTopology: true };
 
 var Schema = require("mongoose").Schema;
-const userSchema = Schema({
+const bookSchema = Schema({
     type: String,
     id: String,
     name: String,
@@ -27,7 +27,7 @@ try {
     Book = mongoose.model('books')
 
 } catch(error) {
-    Book = mongoose.model('books', userSchema);
+    Book = mongoose.model('books', bookSchema);
 }
 
 expressApp.use((req, res, next) => {
@@ -110,6 +110,12 @@ expressApp.get('/books/get',(req,res)=>{
         console.log(err);
     })
 });
+
+
+
+
+
+
 
 
 expressApp.listen(3000,function(){
