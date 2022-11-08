@@ -10,9 +10,12 @@ import { BooksComponent } from './components/books/books.component';
 import { BasketComponent } from './components/basket/basket.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddbookComponent } from './components/addbook/addbook.component';
+
 
 import { AppRoutingModule , routingComponents } from './AppRoutingModule';
 import { RegisterComponent } from './components/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,6 +23,7 @@ import { RegisterComponent } from './components/register/register.component';
     AppComponent,
     LoginComponent,
     MenuComponent,
+    AddbookComponent,
     BooksComponent,
     BasketComponent,
     HomepageComponent,
@@ -32,7 +36,8 @@ import { RegisterComponent } from './components/register/register.component';
     ReactiveFormsModule,
     FormsModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
