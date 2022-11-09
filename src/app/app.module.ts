@@ -16,6 +16,7 @@ import { AddbookComponent } from './components/addbook/addbook.component';
 import { AppRoutingModule , routingComponents } from './AppRoutingModule';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MybookComponent } from './components/mybook/mybook.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     BasketComponent,
     HomepageComponent,
     routingComponents,
-    RegisterComponent
+    RegisterComponent,
+    MybookComponent
   ],
   imports: [
     BrowserModule,

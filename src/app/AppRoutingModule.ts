@@ -6,6 +6,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AddbookComponent } from './components/addbook/addbook.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MybookComponent } from './components/mybook/mybook.component';
 
 const routes:Routes=[
     {path:'', component:LoginComponent},
@@ -14,6 +15,7 @@ const routes:Routes=[
     {path:'home', component: HomepageComponent},
     {path:'books', component: BooksComponent},
     {path:'addbook', component: AddbookComponent},
+    {path:'mybook', component: MybookComponent},
     {path:'basket', component: BasketComponent}
 ];
 

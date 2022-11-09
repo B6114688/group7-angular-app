@@ -40,6 +40,10 @@ export class BooksComponent implements OnInit {
   addToCart(id: number){
     this.cartService.add(id);
   }
+
+  getcounter(){
+    this.cartService.getCounter()
+  }
   
   
 }
