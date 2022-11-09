@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BooksService } from 'src/app/services/books.service';
+import { bookType } from '../model/book.model';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
@@ -7,30 +8,26 @@ import { BooksService } from 'src/app/services/books.service';
 })
 export class BasketComponent implements OnInit {
 
-  books: any
+  
 
-  constructor(private ps: BooksService) {
-    this.onLoading();
-   }
+  cart: bookType = []
 
-   
+  constructor(private cartService: CartService) { 
+    this.cart = this.cartService.getCart();
+
+  }
 
   ngOnInit(): void {
   }
 
-  onLoading(){
-    try {
-      this.ps.getBooks().subscribe(
-        data => {
-          this.books = data;
-        },
-        err =>{
-          console.log(err)
-          
-        });
-    }catch (error) {
-      console.log(error)
-    }
+  getCounter(){
+    return this.cartService.getCounter();
   }
+
+  getSumPrice(){
+    return this.cartService.getsumPrice;
+  }
+ 
+
 
 }

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
+import { bookType } from '../components/model/book.model';
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
 
-  books: any
+  books: bookType = []
 
   constructor(private http: HttpClient) { }
 

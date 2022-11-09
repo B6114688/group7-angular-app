@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-books',
@@ -12,7 +13,7 @@ export class BooksComponent implements OnInit {
 
   books: any
 
-  constructor(private ps: BooksService) {
+  constructor(private ps: BooksService, private cartService: CartService) {
     this.onLoading();
    }
 
@@ -36,7 +37,9 @@ export class BooksComponent implements OnInit {
     }
   }
 
-
+  addToCart(id: number){
+    this.cartService.add(id);
+  }
   
   
 }

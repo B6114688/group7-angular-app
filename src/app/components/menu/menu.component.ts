@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { faHouse , faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { bookType } from '../model/book.model';
+import { CartService } from 'src/app/services/cart.service';
 
 
 @Component({
@@ -16,10 +18,28 @@ export class MenuComponent implements OnInit {
   faHouse = faHouse
   faCartShopping = faCartShopping
 
-  constructor() { }
+  // constructor() { }
+
+  // ngOnInit(): void {
+    
+  // }
+
+  cart: bookType = []
+
+  constructor(private cartService: CartService) { 
+    this.cart = this.cartService.getCart();
+
+  }
 
   ngOnInit(): void {
-    
+  }
+
+  getCounter(){
+    return this.cartService.getCounter();
+  }
+
+  getSumPrice(){
+    return this.cartService.getsumPrice();
   }
 
 }
