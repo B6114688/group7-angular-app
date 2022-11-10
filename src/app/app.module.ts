@@ -17,6 +17,8 @@ import { AppRoutingModule , routingComponents } from './AppRoutingModule';
 import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MybookComponent } from './components/mybook/mybook.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DetailBookComponent } from './components/detail-book/detail-book.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { MybookComponent } from './components/mybook/mybook.component';
     HomepageComponent,
     routingComponents,
     RegisterComponent,
-    MybookComponent
+    MybookComponent,
+    ProfileComponent,
+    DetailBookComponent
   ],
   imports: [
     BrowserModule,

@@ -213,15 +213,15 @@ expressApp.post('/users/login', async(req, res) => { //ของตัว login
 
     try {
         const result = await findUser(dataLoginFromWeb.email);
-        //console.log(result);
+        console.log(result);
         const loginStatus = await compareHash(dataLoginFromWeb.password, result.password);
         console.log(loginStatus);
         
         if(loginStatus){
             const token = jwt.sign(result, key, {expiresIn: 60*60});
             console.log(token);
-            //res.status(200).json({result, token, loginStatus});
-            res.status(200).send(loginStatus);
+            res.status(200).json({result, token, loginStatus});
+            //res.status(200).send(loginStatus);
         }else{
             res.status(200).json({loginStatus});
         }
