@@ -70,7 +70,7 @@ try {
 
 const findUser = (email) => {
     return new Promise((resolve, reject) => {
-        User.findOne({email: emailgg}, (err, data) => {
+        User.findOne({email: email}, (err, data) => {
             if (err) {
                 reject(new Error('Cannot find user!'));
             } else {
