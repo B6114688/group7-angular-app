@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   previewLoaded: boolean = false;
 
-  constructor(private ps: LoginService, private router: AppRoutingModule) { }
+  constructor(private ps: LoginService) { }
 
   ngOnInit(): void {
   }
