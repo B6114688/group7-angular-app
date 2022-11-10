@@ -11,25 +11,32 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
-  addBook(bookData:any){
+  addBook(bookData: any) {
     return this.http.post<any>('http://localhost:3000/books/add', bookData)
       .pipe(map(data => {
         return data;
       }));
   }
 
-  getBooks(){
+  getBooks() {
     return this.http.get<any>('http://localhost:3000/books/get')
       .pipe(map(data => {
-        if(data){
+        if (data) {
           this.books = data;
         }
         return this.books;
       }));
   }
 
-  getSomeBook(id: number){
+  getSomeBook(id: number) {
     return this.books[id]
+  }
+
+  deleteBook() {
+    return this.http.delete<any>('http://localhost:3000/books/delete')
+      .pipe(map(data => {
+        return data;
+      }));
   }
 
 
