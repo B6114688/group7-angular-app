@@ -45,5 +45,8 @@ export class BooksComponent implements OnInit {
     this.cartService.getCounter()
   }
   
+  deleteBook(){
+    this.ps.deleteBook()
+  }
   
 }

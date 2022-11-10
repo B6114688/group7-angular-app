@@ -65,7 +65,7 @@ try {
 
 const findUser = (emailgg) => {
     return new Promise((resolve, reject) => {
-        User.findOne({email: emailgg}, (err, data) => {
+        User.findOne({ email: emailgg }, (err, data) => {
             if (err) {
                 reject(new Error('Cannot find user!'));
             } else {
@@ -160,6 +160,12 @@ const getUsers = () => {
     });
 }
 
+const deletebook = (bookId) => {
+    console.log(bookId)
+    //เขียนให้มันลบ
+}
+
+
 
 
 expressApp.post('/books/add', (req, res) => {
@@ -196,7 +202,7 @@ expressApp.post('/users/add', (req, res) => {
         })
 
 });
-expressApp.post('/users/login', async(req, res) => { //ของตัว login
+expressApp.post('/users/login', async (req, res) => { //ของตัว login
     console.log('login');
     const dataLoginFromWeb = {
         email: req.body.email,
@@ -205,18 +211,18 @@ expressApp.post('/users/login', async(req, res) => { //ของตัว login
     console.log(dataLoginFromWeb);
 
     try {
-        const result = await findUser(dataLoginFromWeb.email);  
-        console.log(result);
+        const result = await findUser(dataLoginFromWeb.email);
+        //console.log(result);
         const loginStatus = await compareHash(dataLoginFromWeb.password, result.password);
-        console.log(loginStatus);
-        
-        if(loginStatus){
-            const token = jwt.sign(result, key, {expiresIn: 60*60});
-            console.log(token);
-            //res.status(200).json({result, token, loginStatus});
-            res.status(200).send(loginStatus);
-        }else{
-            res.status(200).json({loginStatus});
+        //console.log(loginStatus);
+
+        if (loginStatus) {
+            const token = jwt.sign(result, key, { expiresIn: 60 * 60 });
+            //console.log(token);
+            res.status(200).json({ result, token, loginStatus });
+            //res.status(200).send(loginStatus);
+        } else {
+            res.status(200).json({ loginStatus });
         }
     } catch (error) {
         res.status(404).send(error);
@@ -237,7 +243,18 @@ expressApp.get('/books/get', (req, res) => {
 });
 
 
+expressApp.delete('/books/delete', (req, res) => {
 
+    console.log(req.body._id)
+    deletebook(req.body._id)
+        .then(result => {
+            console.log('Delete successfully');
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
 
 
 
